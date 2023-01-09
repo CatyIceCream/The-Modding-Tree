@@ -51,7 +51,7 @@ addLayer("in", {
         11: {
             title: 'Investments',
             cost(x) {
-                return (player.points.mul(new Decimal(0.1).add(new Decimal(0.05).mul(x+1))).add(new Decimal(215).mul(2**x)).ceil())
+                return (player.points.mul(new Decimal(0.1).add(new Decimal(0.02).mul(x+1))).add(new Decimal(215).mul(2**x)).ceil())
             },
             display () {
                 const amount = getBuyableAmount(this.layer, this.id)
@@ -59,7 +59,7 @@ addLayer("in", {
 
                 return (
                     `<br><br>${amount} investments<br><br>Invest ${cost} of your funds into something, like spatulas` +
-                    "<br><br>((215 * 2^x) + 10 + (5*x) % of funds)<br><br> -- not functional +2% fund gain"
+                    "<br><br>((215 * 2^x) + (2*x) % of funds)<br><br> -- not functional +2% fund gain"
                 )
 
             },
