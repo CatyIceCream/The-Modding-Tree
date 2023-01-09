@@ -47,6 +47,31 @@ addLayer("in", {
             //unlocked () { return new Decimal(1) },
         },
     },
+    buyables: {
+        11: {
+            title: 'Spatulas',
+            cost(x) {
+                return (new Decimal(10)).mul(new Decimal(1.2).pow(x)).ceil()
+            },
+            display () {
+                const amount = getBuyableAmount(this.layer, this.id)
+                const cost = this.cost()
+
+                return (
+                    `${amount} purchased<br>Buy another for ${cost} ingredients` +
+                    "<br>Spatulas are very good but do nothing"
+                )
+
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost()) 
+            },
+            buy () {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+        },
+    },
     branches: ["i"]
 })
 addLayer("i", {
