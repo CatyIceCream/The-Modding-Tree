@@ -25,7 +25,7 @@ addLayer("in", {
         {key: "N", description: "N: Reset for ingredients", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     upgrades: {
-        11: {
+        /*11: {
             description: "<h3>Investment</h3><br> +2% funds/s",
             fullDisplay () {
                 let desc = this.description
@@ -45,29 +45,29 @@ addLayer("in", {
             },
             //cost: new Decimal(1),
             //unlocked () { return new Decimal(1) },
-        },
+        },*/
     },
     buyables: {
         11: {
-            title: 'Spatulas',
+            title: 'Investments',
             cost(x) {
-                return (new Decimal(10)).mul(new Decimal(1.2).pow(x)).ceil()
+                return (player.points.mul(new Decimal(0.1).add(new Decimal(0.05).mul(x+1))).add(new Decimal(215).mul(2**x)).ceil())
             },
             display () {
                 const amount = getBuyableAmount(this.layer, this.id)
                 const cost = this.cost()
 
                 return (
-                    `${amount} purchased<br>Buy another for ${cost} ingredients` +
-                    "<br>Spatulas are very good but do nothing"
+                    `<br><br>${amount} investments<br><br>Invest ${cost} of your funds into something, like spatulas` +
+                    "<br><br>((215 * 2^x) + 10 + (5*x) % of funds)<br><br> -- not functional +2% fund gain"
                 )
 
             },
             canAfford() {
-                return player[this.layer].points.gte(this.cost()) 
+                return player.points.gte(this.cost()) 
             },
             buy () {
-                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                player.points = player.points.sub(this.cost())
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
         },
@@ -101,8 +101,8 @@ addLayer("i", {
         {key: "I", description: "I: Reset for ice", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     upgrades: {
-    11: {
-        description: "Add one to the base heat loss -- not functional",
+    /*11: {
+        description: "-- not functional",
         //cost: new Decimal(1),
         canAfford () {
             return player.points.gte(100)
@@ -111,7 +111,7 @@ addLayer("i", {
             player.points = player.points.sub(100)
         },
         //unlocked () { return new Decimal(1) }
-    }
+    }*/
 }
 })
 
