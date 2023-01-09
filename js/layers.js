@@ -7,7 +7,7 @@ addLayer("in", {
         points: new Decimal(0),
     }},
     color: "#C68958",
-    requires: new Decimal(2), // Can be a function that takes requirement increases into account
+    requires: new Decimal(2000000), // Can be a function that takes requirement increases into account
     resource: "ingredients", // Name of prestige currency
     baseResource: "funds", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -26,16 +26,16 @@ addLayer("in", {
     ],
     upgrades: {
         11: {
-            description: "<h3>Investment</h3><br> +2% funds/s (not yet working)",
+            description: "<h3>Investment</h3><br> +2% funds/s",
             fullDisplay () {
                 let desc = this.description
                 if (!hasUpgrade(this.layer, this.id)) {
-                    desc +=`<br><br>costs ${this.costInPoints()} funds`
+                    desc +=`<br><br> Costs: ${this.costInPoints()} funds<br>(215 + 10% of funds)`
                 }
                 return desc
             },
             costInPoints () {
-                return player.points.div(2).add(10).ceil()
+                return player.points.div(10).add(215).ceil()
             },
             canAfford () {
                 return player.points.gte(this.costInPoints())

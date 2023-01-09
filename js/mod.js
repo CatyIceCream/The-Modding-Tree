@@ -20,9 +20,9 @@ let VERSION = {
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.2</h3><br>
 		- Replaced coldness with funds (basic points)
-			-Fund increase their gain by a small amount based off itself, but slows down and becomes too small to matter
-		-Added a ingredient layer between basic points and ice
-		-Added placeholder upgrades that don't do anything in each layer, and will be replaced with buyables<br>
+			-Fund increase their gain by a small amount based off itself, but slows down and becomes too small to matter<br>
+		-Added a ingredient layer between basic points and ice<br>
+		-Removed placeholder upgrades and added a Investment buyable<br>
 	<h3>v0.1</h3><br>
 		- Added coldness. Max coldness is currently 33.33<br>
 		- Added ice layer.`
