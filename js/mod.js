@@ -65,7 +65,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-   function () { return ` `},
+   function () { return `Gain without non-fund boosts: ${new Decimal(player.points <= 0 ? 0.43 : 0.43+Math.log(1.29**(player.points**0.43)))}`},
 ]
 
 // Determines when the game "ends"
