@@ -66,7 +66,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-   function () { return `fund self-boost: +${Math.log(1.29**(player.points**0.43)).toFixed(2)}`},
+   function () { return `<br>default: (0.43/s) <br>fund self-boost: +(${Math.log(1.29**(player.points**0.43)).toFixed(2)}/s)`},
 ]
 
 // Determines when the game "ends"
