@@ -52,9 +52,9 @@ function getPointGen() {
 	//let gain = new Decimal(1/(player.points+1))
 	let gain = new Decimal(player.points <= 0 ? 0.43 : 0.43+Math.log(1.29**(player.points**0.43)))
 	
-	if (hasUpgrade('in',11)) {
-   	gain = gain.times(1.02)
-	}
+	const numInvestments = getBuyableAmount('in', 11)
+	gain = gain.times((new Decimal(1.02)).pow(numInvestments))
+
 	return gain
 
 }
