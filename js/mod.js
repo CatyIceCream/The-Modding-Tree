@@ -19,7 +19,7 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.21</h3><br>
-		-Changed Investment buyable cost from ((215 * 2^x)+(2+(0.5*x)% of player points)) to ((215 * 2^x) + (player points to the 2.5th root))
+		-Changed Investment buyable cost from ((215 * 2^x)+(2+(0.5*x)% of player points)) to ((215 * 2^x) + (player points to the 1.5th root))
 		<br>-Changed investment bonus from 2% to 4%<br>
 	<h3>v0.2</h3><br>
 		- Replaced coldness with funds (basic points)
