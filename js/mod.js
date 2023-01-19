@@ -13,11 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2",
-	name: "Ingredients + Funds",
+	num: "0.21",
+	name: "Investment Buyable Change",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.21</h3><br>
+		-Changed Investment buyable cost from ((215 * 2^x)+(2+(0.5*x)% of player points)) to ((215 * 2^x) + (player points to the 2.5th root))
+		<br>-Changed investment bonus from 2% to 4%<br>
 	<h3>v0.2</h3><br>
 		- Replaced coldness with funds (basic points)
 			-Fund increase their gain by a small amount based off itself, but slows down and becomes too small to matter<br>
@@ -53,7 +56,7 @@ function getPointGen() {
 	let gain = new Decimal(player.points <= 0 ? 0.43 : 0.43+Math.log(1.29**(player.points**0.43)))
 	
 	const numInvestments = getBuyableAmount('in', 11)
-	const investmentBonus = new Decimal(1.02).pow(numInvestments)
+	const investmentBonus = new Decimal(1.04).pow(numInvestments)
 	gain = gain.times(investmentBonus)
 
 	return gain

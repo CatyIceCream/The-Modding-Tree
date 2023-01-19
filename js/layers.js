@@ -51,7 +51,9 @@ addLayer("in", {
         11: {
             title: 'Investments',
             cost(x) {
-                return (player.points.mul(new Decimal(0.1).add(new Decimal(0.005).mul(x+1))).add(new Decimal(215).mul(2**x)).ceil())
+                const amount = getBuyableAmount(this.layer, this.id)
+                //return (player.points.mul(new Decimal(0.1).add(new Decimal(0.005).mul(x+1))).add(new Decimal(215).mul(2**x)).ceil())
+                return (player.points.root(new Decimal(2.5))).add(new Decimal(215).mul(new Decimal(2).pow((getBuyableAmount(this.layer, this.id))))).ceil()
             },
             display () {
                 const amount = getBuyableAmount(this.layer, this.id)
@@ -59,7 +61,7 @@ addLayer("in", {
 
                 return (
                     `<br><br>${amount} investments<br><br>Invest ${cost} of your funds into something, like spatulas` +
-                    "<br><br>((215 * 2^x) + (0.5*x) % of funds)<br><br> -- not functional +2% fund gain"
+                    "<br><br>((215 * 2^x) + (player points to the 2.5th root))<br><br> +4% fund gain"
                 )
 
             },
@@ -83,7 +85,7 @@ addLayer("i", {
 		points: new Decimal(0),
     }},
     color: "#FFFAFA",
-    requires: new Decimal(30), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1), // Can be a function that takes requirement increases into account
     resource: "ice", // Name of prestige currency
     baseResource: "ingredients", // Name of resource prestige is based on
     baseAmount() {return player.in.points}, // Get the current amount of baseResource
