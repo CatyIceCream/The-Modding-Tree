@@ -13,11 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.21",
-	name: "Investment Buyable Change",
+	num: "0.22",
+	name: "Investment Buyable Change Again",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.21</h3><br>
+		-Changed Investment buyable cost from ((215 * 2^x) + (player points to the 1.5th root)) to ((215 * 1.5^x) + (player points to the 1.5th root))		
+		<br>-Changed investment bonus from 4% to 5%<br>
 	<h3>v0.21</h3><br>
 		-Changed Investment buyable cost from ((215 * 2^x)+(2+(0.5*x)% of player points)) to ((215 * 2^x) + (player points to the 1.5th root))
 		<br>-Changed investment bonus from 2% to 4%<br>
@@ -56,7 +59,7 @@ function getPointGen() {
 	let gain = new Decimal(player.points <= 0 ? 0.43 : 0.43+Math.log(1.29**(player.points**0.43)))
 	
 	const numInvestments = getBuyableAmount('in', 11)
-	const investmentBonus = new Decimal(1.04).pow(numInvestments)
+	const investmentBonus = new Decimal(1.05).pow(numInvestments)
 	gain = gain.times(investmentBonus)
 
 	return gain
