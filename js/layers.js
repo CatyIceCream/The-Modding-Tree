@@ -26,7 +26,7 @@ addLayer("α₁", {
             
     },
 
-}
+},
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
