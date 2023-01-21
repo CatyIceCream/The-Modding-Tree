@@ -13,12 +13,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.01",
+	num: "0.0.1",
 	name: "Placeholders",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.01</h3><br>
+	<h3>v0.0.1</h3><br>
 		- Added Segment α₁ placeholder<br>
 		- Added א placeholder`
 
