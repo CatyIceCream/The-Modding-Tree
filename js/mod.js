@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
-	pointsName: "points",
+	name: "The Segment Tree",
+	id: "omega",
+	author: "CatyIceCream",
+	pointsName: "Stacks",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -13,14 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "-0.0",
-	name: "Broken",
+	num: "0.01",
+	name: "Placeholders",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v-0.0</h3><br>
-		- Look at the changelog<br>
-		- later.`
+	<h3>v0.01</h3><br>
+		- Added Segment α₁ placeholder<br>
+		- Added א placeholder`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
