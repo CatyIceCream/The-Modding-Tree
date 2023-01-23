@@ -18,6 +18,11 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.0.2</h3><br>
+		- Added Segment β₁ placeholder<br>
+		- Added Expand (א) buyable placeholder<br>
+		- Changed layer types to none<br>
+		- Gave each node a color<br>
 	<h3>v0.0.1</h3><br>
 		- Added Segment α₁ placeholder<br>
 		- Added א placeholder`
